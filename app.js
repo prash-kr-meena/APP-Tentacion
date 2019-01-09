@@ -23,8 +23,21 @@ const server = app.listen(port, ()=>{
 const io = socket(server);
 
 io.on('connection', (socket) =>{
-      console.log('\x1b[35m%s\x1b[0m',`${socket.id} connection made!`);
       // console.log(socket);
+      console.log('\x1b[35m%s\x1b[0m',`${socket.id} connection made!`);
+
+
+      // Handle chat event
+      socket.on('chat', function(data){
+            // console.log(data);
+            io.sockets.emit('chat', data);
+      });
+
+      // Handle typing-feedback event
+      socket.on('typing', function(data){
+            socket.broadcast.emit('typing', data);
+            // emit this event to all the sockets, except the original one
+      });
 });
 
 
