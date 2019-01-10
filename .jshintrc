@@ -82,6 +82,8 @@
         "module": true,
         "process" : true,
         "__dirname" : true,
-        "Buffer" : true
+        "Buffer" : true,
+        "angular" : true,
+        "io" : true
     }
 }

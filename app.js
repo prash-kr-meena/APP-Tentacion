@@ -9,17 +9,13 @@ const app = express();
 const port = process.env.port || 5000;
 
 
-// Static files
-app.use(express.static('public'));
-
-
-
+//! -------   server listen   -------
 const server = app.listen(port, ()=>{
       console.log('\x1b[34m%s\x1b[0m',`HTTP Server @ ${port}`);
 });
 
 
-// socket.io setup
+//? socket.io setup
 const io = socket(server);
 
 io.on('connection', (socket) =>{
