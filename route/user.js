@@ -139,6 +139,7 @@ user_Router.post('/login', (req, res) => {
                               msg : "successfully loged in && changed the status to Y",
                               userId : user._id,
                               email : user.email,
+                              name : user.name,
                               socketId : user.socketId
                         });
                   }
